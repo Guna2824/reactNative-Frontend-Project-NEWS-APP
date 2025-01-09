@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/news.gif",
+      "image": "./assets/icons.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,12 +17,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/news.gif",
+        "foregroundImage": "./assets/icons.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.gunachandran.NEWS"
     },
     "web": {
       "favicon": "./assets/icons.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fc853432-b72b-4b4a-99cd-922c32179896"
+      }
     }
   }
 }
