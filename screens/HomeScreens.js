@@ -11,12 +11,12 @@ export default function HomeScreen() {
 
   const [data, setData] = useState([]);
 
-  const apiUrl = process.env.EXPO_PUBLIC_API_URL
+  const apiKey = process.env.EXPO_PUBLIC_API_KEY
 
   useEffect(()=>{
     const getData = async()=>{
       try{
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiUrl}`)
+        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`)
         setData(response.data.articles)
         // Alert.alert('success')
       }catch(err){
