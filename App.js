@@ -6,6 +6,7 @@ const Stack = createNativeStackNavigator();
 
 import HomeScreen from './screens/HomeScreens'
 import NewsScreen from './screens/NewsScreen';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
         />
         <Stack.Screen name='news' component={NewsScreen} />
       </Stack.Navigator>
+      <StatusBar backgroundColor='orange' />
     </NavigationContainer>
   );
 }
