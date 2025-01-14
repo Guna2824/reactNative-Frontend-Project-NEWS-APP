@@ -10,6 +10,7 @@ export default function HomeScreen() {
     const navigation = useNavigation();
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const apiUrl = process.env.EXPO_PUBLIC_API_URL;
   const apiKey = process.env.EXPO_PUBLIC_API_KEY
@@ -17,11 +18,13 @@ export default function HomeScreen() {
   useEffect(()=>{
     const getData = async()=>{
       try{
-        const response = await axios.get(`${apiUrl}${apiKey}`)
+        const response = await axios.get(apiUrl+apiKey)
         setData(response.data.articles)
         // Alert.alert('success')
       }catch(err){
         Alert.alert('Error')
+      } finally {
+        setLoading(false);
       }
     }
     getData()
@@ -44,13 +47,13 @@ export default function HomeScreen() {
     </View>
   );
 
-  if(data.length === 0){
-    return(
+  if (loading) {
+    return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size='large' color='green' />
-        <Text style={styles.loadingText} >Loading...</Text>
+        <ActivityIndicator size="large" color="#007AFF" />
+        <Text style={styles.loadingText}>Loading products...</Text>
       </View>
-    )
+    );
   }
 
   return (
@@ -72,12 +75,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
     paddingTop: 20,
-  },
-  loadingText: {
-    marginTop: 10,
-    fontSize: 16,
-    color: "#666",
-    fontWeight: "500",
   },
   card: {
     backgroundColor: '#fff',
@@ -121,10 +118,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
-  loadingContainer : {
-    flex : 1,
-    alignItems:'center',
-    justifyContent:'center'
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f9f9f9",
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: "#666",
   },
 });
 

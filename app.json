@@ -18,8 +18,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons.png",
-        "backgroundColor": "#ffffff",
-        "permissions": ["INTERNET"]
+        "backgroundColor": "#ffffff"
       },
       "package": "com.gunachandran.NEWS"
     },
@@ -28,7 +27,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "fc853432-b72b-4b4a-99cd-922c32179896"
+        "projectId": "8031d4a2-f4f7-4805-9465-90a4953a980b"
       }
     }
   }
